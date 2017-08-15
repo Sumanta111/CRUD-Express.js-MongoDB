@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Home</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+<h2><label>List Articles</label><a href="/create"><button type="button" class="btn btn-primary navbar-right">Add New</button></a></h2>
+<hr>
+<table class="table">
+    <thead>
+      <tr>
+        <th>Article Title</th>
+        <th>Operations</th>
+      </tr>
+    </thead>
+    <% for(var i=0; i<quotes.length; i++) {%>
+    <tbody>
+      <tr>
+        <td><%= quotes[i].title %></td>
+        <td>
+        	<a href="/view/<%= quotes[i]._id %>"><button type="button" class="btn btn-info">View</button></a>
+          <a href="/update/<%= quotes[i]._id %>"><button type="button" class="btn btn-success">Update</button></a>
+          <a href="/delete/<%= quotes[i]._id %>"><button type="button" class="btn btn-danger">Delete</button></a>
+        </td>
+      </tr>
+    </tbody>
+    <% } %>
+  </table>
+</div>
+</body>
+</html>
